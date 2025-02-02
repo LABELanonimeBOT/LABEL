@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etichette Anonime</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        .container { max-width: 600px; margin: auto; padding: 20px; background-color: white; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; }
+        label { display: block; margin-top: 10px; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; }
+        button { width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Genera Etichetta di Spedizione Anonima</h1>
+    <form id="shipping-form">
+        <label for="name">Nome destinatario</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="address">Indirizzo destinatario</label>
+        <input type="text" id="address" name="address" required><br>
+
+        <label for="weight">Peso (kg)</label>
+        <input type="number" id="weight" name="weight" required><br>
+
+        <label for="carrier">Seleziona corriere</label>
+        <select id="carrier" name="carrier" required>
+            <option value="ups">UPS</option>
+            <option value="usps">USPS</option>
+            <option value="dhl">DHL</option>
+        </select><br>
+
+        <button type="submit">Genera Etichetta</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById("shipping-form").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const address = document.getElementById("address").value;
+        const weight = document.getElementById("weight").value;
+        const carrier = document.getElementById("carrier").value;
+
+        alert("Etichetta creata con successo!");
+        console.log(`Nome: ${name}, Indirizzo: ${address}, Peso: ${weight}, Corriere: ${carrier}`);
+    });
+</script>
+
+</body>
+</html>
